@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About | William "Billy" Hans</title>
+<meta name="description" content="Who I am, where I came from, and what made me. Philadelphia, the US Navy, and a multi-branch operation in Texas.">
+<meta name="theme-color" content="#0c0c0c">
+<meta name="color-scheme" content="dark">
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="William &quot;Billy&quot; Hans">
+<meta property="og:title" content="About | William &quot;Billy&quot; Hans">
+<meta property="og:description" content="Who I am, where I came from, and what made me.">
+<link rel="canonical" href="https://williamhans.app/about.html">
+<meta property="og:url" content="https://williamhans.app/about.html">
+<meta property="og:image" content="https://williamhans.app/og-image.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About | William &quot;Billy&quot; Hans">
+<meta name="twitter:description" content="Who I am, where I came from, and what made me.">
+<meta name="twitter:image" content="https://williamhans.app/og-image.png">
+<style>
+/* ---- the terminal's vocabulary, same values as the landing ---- */
+:root{--page:#161616;--term:#0c0c0c;--chrome:#1f1f1f;--line:#2a2a2a;--line2:#1c1c1c;--fg:#cccccc;--dim:#8a8a8a;--bright:#f2f2f2;--gold:#c19c00;--gold-dk:#6b5600;--green:#16c60c;--blue:#3b78ff;--red:#f14c4c;--mono:ui-monospace,'Cascadia Mono','SF Mono',Menlo,Consolas,'Liberation Mono','DejaVu Sans Mono',monospace;--bar:36px}
+*{box-sizing:border-box}
+html{background:var(--page);color-scheme:dark;scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--page);color:var(--fg);font:13px/1.45 var(--mono)}
+a{color:var(--fg)}
+a:hover{color:#fff}
+a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+::selection{background:var(--fg);color:var(--term)}
+.win{max-width:1040px;margin:0 auto;background:var(--term);border-left:1px solid var(--line);border-right:1px solid var(--line);min-height:100vh}
+
+/* ---- title bar ---- */
+.bar{position:sticky;top:0;z-index:10;height:var(--bar);display:flex;align-items:stretch;justify-content:space-between;background:var(--chrome);user-select:none}
+.bar .tabs{display:flex;align-items:stretch;min-width:0}
+.bar .tab{display:flex;align-items:center;gap:8px;padding:0 10px 0 12px;background:var(--term);font-size:12px;white-space:nowrap;min-width:0}
+.bar .tab span:nth-child(2){overflow:hidden;text-overflow:ellipsis}
+.bar .tab b{font-weight:700}
+.bar .tab .x{margin-left:10px;color:var(--dim)}
+.bar .plus{display:flex;align-items:center;padding:0 12px;font-size:14px}
+.bar .ctl{display:flex;align-items:center;gap:26px;padding:0 16px;font-size:12px;white-space:nowrap}
+.bar .ctl a{color:var(--dim);text-decoration:none;padding:4px 6px;margin-right:-6px}
+.bar .ctl a:hover{color:#fff;background:var(--line)}
+.bar .ctl span{color:var(--fg)}
+.bar .prog{position:absolute;left:0;right:0;bottom:0;height:2px;background:transparent}
+.bar .prog i{display:block;height:100%;width:calc(var(--p,0) * 100%);background:var(--gold);transition:width .15s linear}
+@media (max-width:560px){.bar .ctl span{display:none}.bar .ctl{gap:0;padding:0 10px}}
+
+/* ---- frame: rail + content ---- */
+.frame{display:grid;grid-template-columns:1fr;padding:0 clamp(16px,4vw,40px) 72px}
+.frame > main{min-width:0}
+.rail{display:none}
+@media (min-width:960px){
+  .frame{grid-template-columns:168px minmax(0,1fr);gap:0 32px}
+  .rail{display:block;position:sticky;top:calc(var(--bar) + 40px);align-self:start;height:calc(100vh - var(--bar) - 80px);padding:4px 0 0 2px}
+  .rail .track{position:absolute;left:3px;top:10px;bottom:10px;width:2px;background:var(--line)}
+  .rail .track i{position:absolute;left:0;top:0;width:100%;height:calc(var(--p,0) * 100%);background:var(--gold);transition:height .15s linear}
+  .rail ol{list-style:none;margin:0;padding:0 0 0 20px;display:flex;flex-direction:column;justify-content:space-between;height:100%}
+  .rail a{display:flex;gap:10px;align-items:baseline;color:var(--dim);text-decoration:none;font-size:12px;line-height:1.2;padding:3px 0}
+  .rail a span{color:var(--gold-dk);font-size:11px}
+  .rail a:hover{color:var(--fg)}
+  .rail li.on a{color:var(--bright)}
+  .rail li.on a span{color:var(--gold)}
+  .bar .prog{display:none}
+}
+
+/* ---- prompt lines ---- */
+.cmd{display:flex;flex-wrap:wrap;align-items:baseline;min-height:1.45em;overflow-wrap:anywhere}
+.cmd .ps{color:var(--green);font-weight:700}
+.cmd .dir{color:var(--blue);font-weight:700}
+.cmd .sp{white-space:pre}
+.caret{display:inline-block;width:8px;height:1.1em;vertical-align:text-bottom;background:var(--fg);margin-left:1px;opacity:0}
+.caret.on{opacity:1;animation:blink 1s steps(1) infinite}
+@keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}
+
+/* ---- hero ---- */
+.hero{min-height:calc(100vh - var(--bar));display:flex;flex-direction:column;justify-content:center;padding:48px 0 40px}
+.hero .out{display:flex;flex-direction:column;gap:2px;margin-top:6px}
+.hero .out > *{opacity:0;transform:translateY(6px);transition:opacity .35s ease,transform .35s ease}
+.hero .out > .show{opacity:1;transform:none}
+.art{margin:10px 0 18px;font-size:min(13px,calc((100vw - 64px) / 31));line-height:1.15;white-space:pre}
+.art .row{display:block;min-height:1.15em}
+.art .k{color:var(--gold)}
+.art .s{color:var(--gold-dk)}
+/* once printed, the letters power on: a bright band sweeps the columns and keeps passing every few seconds,
+   and each cell blinks on its own clock, the way the rack's LEDs do. A pointer over them lights the cells it touches. */
+.art.on .k{animation:sweep 7s ease-out calc(var(--c,0) * 14ms) infinite,flick var(--fl,5s) steps(1,end) calc(1.6s + var(--fd,0s)) infinite}
+@keyframes sweep{0%{color:var(--gold);text-shadow:0 0 3px rgba(193,156,0,.3)}4%{color:#ffe780;text-shadow:0 0 6px rgba(255,220,80,.95),0 0 16px rgba(255,170,0,.55)}12%,100%{color:var(--gold);text-shadow:0 0 3px rgba(193,156,0,.35)}}
+@keyframes flick{0%,91%{opacity:1}92%{opacity:.25}93.5%{opacity:1}95%{opacity:.5}96%,100%{opacity:1}}
+.art .k.hot{color:#fff3b0!important;text-shadow:0 0 8px rgba(255,230,120,1),0 0 20px rgba(255,180,0,.7)!important;opacity:1!important}
+.art.on{cursor:crosshair}
+.hero .name{font-size:clamp(20px,3vw,30px);font-weight:700;color:var(--bright);line-height:1.15;margin:0}
+.hero .sub{font-size:clamp(15px,1.8vw,19px);line-height:1.5;color:var(--fg);max-width:46ch;margin:4px 0 0;text-wrap:pretty}
+.hero .hint{color:var(--dim);margin:14px 0 0}
+.hero .hint b{display:inline-block;font-weight:400;color:var(--gold);animation:bob 1.6s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+
+/* ---- chapters ---- */
+.ch{padding:64px 0 56px;border-top:1px solid var(--line2);scroll-margin-top:calc(var(--bar) + 24px)}
+.ch .cmd .n{color:var(--gold-dk);margin-right:14px}
+.ch .body{display:grid;grid-template-columns:1fr;gap:28px 48px;margin-top:14px;align-items:center}
+@media (min-width:760px){
+  .ch .body{grid-template-columns:minmax(0,5fr) minmax(0,6fr)}
+  .ch.alt .body{grid-template-columns:minmax(0,6fr) minmax(0,5fr)}
+  .ch.alt .scene{order:-1}
+}
+.ch h2{margin:0 0 14px;font-size:clamp(24px,3.2vw,34px);line-height:1.1;letter-spacing:-.01em;font-weight:700;color:var(--bright);text-wrap:balance}
+.ch p{margin:0 0 12px;font-size:15px;line-height:1.65;max-width:56ch;text-wrap:pretty}
+.ch p:last-child{margin-bottom:0}
+.ch .text > *{opacity:0;transform:translateY(12px);transition:opacity .6s ease,transform .6s ease}
+.ch.in .text > *{opacity:1;transform:none}
+.ch.in .text > :nth-child(1){transition-delay:.15s}
+.ch.in .text > :nth-child(2){transition-delay:.3s}
+.ch.in .text > :nth-child(3){transition-delay:.45s}
+
+/* ---- scenes ---- */
+.scene{margin:0;min-width:0}
+.scene svg{display:block;width:100%;height:auto;color:var(--gold);overflow:visible}
+.scene :where(path,circle,ellipse,line,rect){fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.scene .solid{fill:var(--term)}
+.scene .dimc{color:var(--gold-dk)}
+.scene .faint{color:var(--line);stroke-width:1.2}
+.scene text{font:700 11px var(--mono);fill:currentColor;stroke:none;letter-spacing:.04em}
+.scene g[style*='font-size'] text,.scene text[style*='font-size']{font-size:inherit}
+.draw{stroke-dasharray:1;stroke-dashoffset:1}
+.in .draw{animation:draw 1.5s cubic-bezier(.4,0,.2,1) forwards;animation-delay:var(--d,0s)}
+@keyframes draw{to{stroke-dashoffset:0}}
+.pop{opacity:0;transform:scale(.4);transform-box:fill-box;transform-origin:center}
+.in .pop{animation:pop .5s cubic-bezier(.34,1.56,.64,1) forwards;animation-delay:var(--d,0s)}
+@keyframes pop{to{opacity:1;transform:scale(1)}}
+.fade{opacity:0}
+.in .fade{animation:fadein .6s ease forwards;animation-delay:var(--d,0s)}
+@keyframes fadein{to{opacity:1}}
+.rise{opacity:0;transform:translateY(14px)}
+.in .rise{animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:var(--d,0s)}
+@keyframes rise{to{opacity:1;transform:none}}
+/* 01 skyline */
+.scene .win-lit{fill:var(--gold);stroke:none;opacity:0}
+.in .win-lit{animation:lit .5s ease forwards;animation-delay:var(--d,1.4s)}
+@keyframes lit{to{opacity:.85}}
+/* 07 duty roster */
+.scene .cell{fill:var(--gold);stroke:none}
+.scene .cell.off{fill:var(--line2);stroke:none}
+/* 03 devices */
+.scene .led{fill:var(--green);stroke:none;opacity:.2}
+.scene .led.g{fill:var(--gold)}
+.in .led{animation:blinkled 1.4s steps(2,end) infinite;animation-delay:var(--d,0s)}
+@keyframes blinkled{0%{opacity:.2}50%{opacity:1}100%{opacity:.2}}
+/* 06 truck */
+.truck{transform:translateX(-470px)}
+.in .truck{animation:drive 1.6s cubic-bezier(.2,.75,.25,1) .1s forwards}
+@keyframes drive{to{transform:translateX(0)}}
+.wheel{transform:rotate(-900deg)}
+.in .wheel{animation:spin 1.6s cubic-bezier(.2,.75,.25,1) .1s forwards}
+@keyframes spin{to{transform:rotate(0deg)}}
+.crate{opacity:0;transform:translateX(-150px)}
+.in .crate{animation:load .55s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:var(--d,0s)}
+@keyframes load{to{opacity:1;transform:translateX(0)}}
+/* 07 ecg + roles */
+.ecg{color:var(--green);filter:drop-shadow(0 0 4px rgba(22,198,12,.55))}
+.in .ecg{animation-duration:2.4s;animation-timing-function:linear}
+.status{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-direction:column;gap:6px;font-size:13px}
+.status li{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1.3fr) auto;gap:12px;align-items:baseline;border-top:1px solid var(--line2);padding-top:6px}
+.status .k{color:var(--bright)}
+.status .v{color:var(--dim)}
+.status .st{color:var(--dim);white-space:nowrap}
+.status .st i{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--line);margin-right:7px;vertical-align:1px;transition:background .3s ease,box-shadow .3s ease}
+.in .status li:nth-child(1) .st i{transition-delay:2.3s}.in .status li:nth-child(2) .st i{transition-delay:2.55s}.in .status li:nth-child(3) .st i{transition-delay:2.8s}.in .status li:nth-child(4) .st i{transition-delay:3.05s}
+.in .status .st i{background:var(--green);box-shadow:0 0 6px rgba(22,198,12,.7)}
+.in .status .st{transition:color .3s ease}
+.in .status li:nth-child(1) .st{transition-delay:2.3s}.in .status li:nth-child(2) .st{transition-delay:2.55s}.in .status li:nth-child(3) .st{transition-delay:2.8s}.in .status li:nth-child(4) .st{transition-delay:3.05s}
+.in .status .st{color:var(--fg)}
+@media (max-width:420px){.status li{grid-template-columns:minmax(0,1fr) auto}.status .k{grid-row:1;grid-column:1}.status .st{grid-row:1;grid-column:2}.status .v{grid-row:2;grid-column:1 / -1;margin-top:-2px}}
+/* 08 barbell */
+.plate{opacity:0}
+.plate.pl{transform:translateX(-90px)}
+.plate.pr{transform:translateX(90px)}
+.in .plate{animation:slide .6s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:var(--d,0s)}
+@keyframes slide{to{opacity:1;transform:translateX(0)}}
+/* 09 blueprint */
+.scene svg.bp{color:var(--blue)}
+.bp .dots{fill:var(--line);stroke:none}
+/* 10 texas */
+.scene .pin{fill:var(--gold);stroke:none}
+.ring{opacity:0;transform-box:fill-box;transform-origin:center}
+.in .ring{animation:ring 2.6s ease-out infinite;animation-delay:var(--d,2.6s)}
+@keyframes ring{0%{opacity:.9;transform:scale(1)}100%{opacity:0;transform:scale(4)}}
+
+/* ---- text scenes: progress bars, boot, whoami ---- */
+pre{margin:0;font:inherit;white-space:pre;overflow-x:auto;overflow-y:hidden}
+.bars{display:flex;flex-direction:column;gap:14px;font-size:clamp(12px,3.1vw,14px);line-height:1.7}
+.bars .brow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 16px;align-items:baseline}
+.bars .lbl{color:var(--bright)}
+.bars .pbar{grid-column:1 / -1;white-space:pre}
+.bars .ok{color:var(--green);opacity:0;transition:opacity .4s ease}
+.bars .ok.show{opacity:1}
+.bars .num{color:var(--dim)}
+.boot{display:flex;flex-direction:column;gap:4px;font-size:clamp(12px,3.1vw,14px);line-height:1.7}
+.boot .ln{display:grid;grid-template-columns:auto minmax(0,1fr);gap:0 1ch;opacity:0;transform:translateY(4px);transition:opacity .35s ease,transform .35s ease}
+.boot .br{white-space:pre}
+.boot .ok,.boot .arrow{font-weight:400}
+.boot .rest{display:flex;flex-direction:column;min-width:0}
+.boot .ln.show{opacity:1;transform:none}
+.boot .ok{color:var(--green)}
+.boot .t{color:var(--dim)}
+.boot .arrow{color:var(--gold)}
+.who{font-size:clamp(12px,3.1vw,14px);line-height:1.8;margin-top:12px;min-height:10.8em;display:flex;flex-direction:column}
+.who .row{display:grid;grid-template-columns:8ch minmax(0,1fr);gap:0 1ch;align-items:baseline}
+.who .val{white-space:pre-wrap;overflow-wrap:anywhere}
+.who .key{color:var(--dim)}
+.who .val{color:var(--bright)}
+.end .menu{display:flex;flex-direction:column;margin:26px 0 10px}
+.end .menu a{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 14px;min-height:36px;padding:6px 8px;margin:0 0 0 -8px;color:var(--fg);text-decoration:none;border-radius:2px;opacity:0;transform:translateY(6px);transition:opacity .4s ease,transform .4s ease,background .15s ease,color .15s ease}
+.end .menu a.show{opacity:1;transform:none}
+.end .menu a:hover,.end .menu a:focus-visible{background:var(--fg);color:var(--term)}
+.end .menu a .n{flex:none;width:28px;color:var(--dim)}
+.end .menu a:hover .n,.end .menu a:hover .d,.end .menu a:focus-visible .n,.end .menu a:focus-visible .d{color:#2a2a2a}
+.end .menu a .t{flex:none;width:260px;font-weight:700}
+.end .menu a .d{flex:1 1 200px;color:var(--dim)}
+.end .second{margin-top:44px;opacity:0;transition:opacity .3s ease}
+.end .second.show{opacity:1}
+.end .final{margin-top:4px}
+footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;padding:20px 0 0;border-top:1px solid var(--line2);font-size:12px;color:var(--dim)}
+
+/* ---- motion off ---- */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .draw{stroke-dashoffset:0}
+  .pop,.fade,.rise,.plate,.crate,.win-lit,.hero .out > *,.ch .text > *,.end .second,.boot .ln,.end .menu a{opacity:1;transform:none}
+  .win-lit{opacity:.85}
+  .truck,.wheel{transform:none}
+  .led{opacity:.9}
+  .ring{display:none}
+  .hero .hint b{animation:none}
+}
+</style>
+</head>
+<body>
+<div class="win">
+  <header class="bar">
+    <div class="tabs">
+      <div class="tab"><b>&gt;_</b><span>whans@williamhans: ~/about</span><span class="x" aria-hidden="true">&#x2715;</span></div>
+      <div class="plus" aria-hidden="true">+</div>
+    </div>
+    <div class="ctl"><a href="index.html" title="Back to the terminal">cd ~</a><span aria-hidden="true">&#x2014;</span><span aria-hidden="true">&#x25A1;</span><span aria-hidden="true">&#x2715;</span></div>
+    <div class="prog" aria-hidden="true"><i></i></div>
+  </header>
+
+  <div class="frame">
+    <nav class="rail" aria-label="Chapters">
+      <div class="track" aria-hidden="true"><i></i></div>
+      <ol>
+        <li data-for="origin"><a href="#origin"><span>01</span>origin</a></li>
+        <li data-for="keyboard"><a href="#keyboard"><span>02</span>keyboard</a></li>
+        <li data-for="field"><a href="#field"><span>03</span>field</a></li>
+        <li data-for="diploma"><a href="#diploma"><span>04</span>diploma</a></li>
+        <li data-for="hands"><a href="#hands"><span>05</span>hands</a></li>
+        <li data-for="corpsman"><a href="#corpsman"><span>06</span>corpsman</a></li>
+        <li data-for="duty"><a href="#duty"><span>07</span>duty</a></li>
+        <li data-for="solo"><a href="#solo"><span>08</span>solo</a></li>
+        <li data-for="buildout"><a href="#buildout"><span>09</span>buildout</a></li>
+        <li data-for="region"><a href="#region"><span>10</span>region</a></li>
+        <li data-for="whoami"><a href="#whoami"><span>11</span>whoami</a></li>
+      </ol>
+    </nav>
+
+    <main>
+      <!-- ============ hero ============ -->
+      <section class="hero" id="top" aria-label="Introduction">
+        <div class="cmd"><span class="ps">whans@williamhans</span>:<span class="dir">~/about</span><span class="sp">$ </span><span class="typed" data-cmd="cat about.md"></span><i class="caret on" id="hero-caret"></i></div>
+        <div class="out" id="hero-out">
+          <div class="art" id="art" role="img" aria-label="Block letters: ABOUT"></div>
+          <h1 class="name">William "Billy" Hans</h1>
+          <p class="sub">Philadelphia raised. US Navy Hospital Corpsman. Now running a multi-branch operation across Texas.</p>
+          <p class="hint">Where I came from, and what made me. <b aria-hidden="true">&#x2193;</b></p>
+        </div>
+      </section>
+
+      <!-- ============ 01 origin ============ -->
+      <section class="ch" id="origin">
+        <div class="cmd"><span class="n">01</span><span class="ps">whans@williamhans</span>:<span class="dir">~/about</span><span class="sp">$ </span><span class="typed" data-cmd="cat origin.txt"></span></div>
+        <div class="body">
+          <div class="text">
+            <h2>Born in Philadelphia.</h2>
+            <p>Raised by my father, William, and my mother, Genine, in a working-class family. Never rich, and never wanted for anything, because of my parents' sacrifices.</p>
+            <p>Grade school at St. Nicholas of Tolentine. That's where my morals and standards were formed.</p>
+          </div>
+          <figure class="scene" id="skyline">
+            <svg viewBox="0 0 600 300" role="img" aria-label="A Philadelphia skyline drawing itself, rowhouses in front, lights coming on">
+              <g class="dimc">
+                <path class="draw" pathLength="1" style="--d:0s" d="M330,250 V40 H390 V250"/>
+                <path class="draw" pathLength="1" style="--d:.1s" d="M420,250 V90 L445,56 L470,90 V250 M445,56 V30"/>
+                <path class="draw" pathLength="1" style="--d:.15s" d="M150,250 V120 H200 V250"/>
+                <path class="draw" pathLength="1" style="--d:.2s" d="M500,250 V140 H540 V250"/>
+                <path class="draw" pathLength="1" style="--d:.25s" d="M290,250 V150 H320 V250"/>
+              </g>
+              <path class="draw" pathLength="1" style="--d:.3s" d="M230,250 V72 L250,42 L270,72 V250 M238,110 h24 M238,132 h24 M250,42 V26"/>
+              <path class="draw" pathLength="1" style="--d:.45s" d="M0,250 H600"/>
+              <g id="rowhouses">
+                <path class="draw solid" pathLength="1" style="--d:.55s" d="M10,250 V176 H70 V250 M10,184 H70 M34,250 V232 H46 V250"/>
+                <path class="draw solid" pathLength="1" style="--d:.65s" d="M70,250 V172 H130 V250 M70,180 H130 M94,250 V232 H106 V250"/>
+                <path class="draw solid" pathLength="1" style="--d:.75s" d="M130,250 V178 H190 V250 M130,186 H190 M154,250 V232 H166 V250"/>
+                <path class="draw solid" pathLength="1" style="--d:.85s" d="M190,250 V174 H250 V250 M190,182 H250 M214,250 V232 H226 V250"/>
+                <path class="draw solid" pathLength="1" style="--d:.95s" d="M450,250 V176 H510 V250 M450,184 H510 M474,250 V232 H486 V250"/>
+                <path class="draw solid" pathLength="1" style="--d:1.05s" d="M510,250 V172 H570 V250 M510,180 H570 M534,250 V232 H546 V250"/>
+              </g>
+              <g id="lights"></g>
+            </svg>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ============ 02 keyboard ============ -->
+      <section class="ch alt" id="keyboard">
+        <div class="cmd"><span class="n">02</span><span class="ps">whans@williamhans</span>:<span class="dir">~/about</span><span class="sp">$ </span><span class="typed" data-cmd="history | head"></span></div>
+        <div class="body">
+          <div class="text">
+            <h2>Technology came easy.</h2>
+            <p>I was lucky to grow up alongside it, from LeapFrog tablets to home-built servers. Very capable with a keyboard.</p>
+          </div>
+          <figure class="scene">
+            <svg viewBox="0 0 600 300" role="img" aria-label="Four devices in a row: a kid's tablet, a desktop, a laptop, and a server rack with blinking lights">
+              <path class="draw dimc" pathLength="1" style="--d:.1s" d="M20,236 H580"/>
+              <path class="draw dimc" pathLength="1" style="--d:.9s" d="M90,236 v-14 M238,236 v-14 M412,236 v-14 M536,236 v-14"/>
+              <g class="rise" style="--d:.2s">
+                <path d="M46,112 h88 a14,14 0 0 1 14,14 v70 a14,14 0 0 1 -14,14 h-88 a14,14 0 0 1 -14,-14 v-70 a14,14 0 0 1 14,-14 z"/>
+                <path d="M58,128 h64 v50 h-64 z"/>
+                <path d="M62,112 a28,28 0 0 1 56,0"/>
+                <circle cx="50" cy="194" r="3"/><circle cx="130" cy="194" r="3"/>
+              </g>
+              <g class="rise" style="--d:.6s">
+                <path d="M186,106 h104 v84 h-104 z"/><path d="M196,116 h84 v62 h-84 z"/>
+                <path d="M228,190 h20 v12 h-20 z M212,202 h52"/>
+                <path d="M300,118 h30 v92 h-30 z M306,128 h18 M306,136 h18 M306,196 h18"/>
+              </g>
+              <g class="rise" style="--d:1s">
+                <path d="M366,116 h92 v70 h-92 z"/><path d="M372,122 h80 v58 h-80 z"/>
+                <path d="M350,186 h124 l8,14 h-140 z"/>
+              </g>
+              <g class="rise" style="--d:1.4s">
+                <path d="M500,66 h72 v144 h-72 z"/>
+                <path d="M500,90 h72 M500,114 h72 M500,138 h72 M500,162 h72 M500,186 h72"/>
+                <path d="M524,78 h36 M524,102 h36 M524,126 h36 M524,150 h36 M524,174 h36 M524,198 h36"/>
+                <circle class="led" cx="508" cy="78" r="2.2" style="--d:0s"/><circle class="led g" cx="516" cy="78" r="2.2" style="--d:.7s"/>
+                <circle class="led" cx="508" cy="102" r="2.2" style="--d:.3s"/><circle class="led" cx="516" cy="102" r="2.2" style="--d:1.1s"/>
+                <circle class="led g" cx="508" cy="126" r="2.2" style="--d:.5s"/><circle class="led" cx="516" cy="126" r="2.2" style="--d:.2s"/>
+                <circle class="led" cx="508" cy="150" r="2.2" style="--d:.9s"/><circle class="led" cx="516" cy="150" r="2.2" style="--d:.4s"/>
+                <circle class="led" cx="508" cy="174" r="2.2" style="--d:.1s"/><circle class="led g" cx="516" cy="174" r="2.2" style="--d:.8s"/>
+                <circle class="led" cx="508" cy="198" r="2.2" style="--d:.6s"/><circle class="led" cx="516" cy="198" r="2.2" style="--d:1.3s"/>
+              </g>
+            </svg>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ============ 03 field ============ -->
+      <section class="ch" id="field">
+        <div class="cmd"><span class="n">03</span><span class="ps">whans@williamhans</span>:<span class="dir">~/about</span><span class="sp">$ </span><span class="typed" data-cmd="cat playbook.txt"></span></div>
+        <div class="body">
+          <div class="text">
+            <h2>Always on a field.</h2>
+            <p>Sports and extracurriculars, always. Football and baseball at the higher levels for kids my age.</p>
+          </div>
+          <figure class="scene">
+            <svg viewBox="0 0 600 300" role="img" aria-label="A football play diagram with routes drawing, beside a baseball diamond with the base path tracing around">
+              <g class="dimc">
+                <path class="draw" pathLength="1" d="M20,30 H320 V270 H20 Z"/>
+                <path class="draw" pathLength="1" style="--d:.2s" d="M20,70 H320 M20,110 H320 M20,190 H320 M20,230 H320"/>
+                <path class="draw" pathLength="1" style="--d:.3s" d="M20,150 H320"/>
+              </g>
+              <g>
+                <circle class="pop" style="--d:.5s" cx="110" cy="175" r="9"/><circle class="pop" style="--d:.55s" cx="135" cy="175" r="9"/><circle class="pop" style="--d:.6s" cx="160" cy="175" r="9"/><circle class="pop" style="--d:.65s" cx="185" cy="175" r="9"/><circle class="pop" style="--d:.7s" cx="210" cy="175" r="9"/>
+                <circle class="pop" style="--d:.75s" cx="160" cy="202" r="9"/><circle class="pop" style="--d:.8s" cx="160" cy="230" r="9"/>
+                <circle class="pop" style="--d:.85s" cx="50" cy="175" r="9"/><circle class="pop" style="--d:.9s" cx="285" cy="175" r="9"/>
+              </g>
+              <g class="dimc">
+                <path class="pop" style="--d:.5s" d="M116,118 l12,12 M128,118 l-12,12"/><path class="pop" style="--d:.55s" d="M141,118 l12,12 M153,118 l-12,12"/><path class="pop" style="--d:.6s" d="M166,118 l12,12 M178,118 l-12,12"/><path class="pop" style="--d:.65s" d="M191,118 l12,12 M203,118 l-12,12"/>
+                <path class="pop" style="--d:.7s" d="M129,92 l12,12 M141,92 l-12,12"/><path class="pop" style="--d:.75s" d="M179,92 l12,12 M191,92 l-12,12"/>
+                <path class="pop" style="--d:.8s" d="M66,104 l12,12 M78,104 l-12,12"/><path class="pop" style="--d:.85s" d="M257,104 l12,12 M269,104 l-12,12"/>
+              </g>
+              <path class="draw" pathLength="1" style="--d:1.1s" d="M50,164 V48"/>
+              <path class="pop" style="--d:2.4s" d="M44,56 L50,44 L56,56"/>
+              <path class="draw" pathLength="1" style="--d:1.2s" d="M285,164 V112 L228,56"/>
+              <path class="pop" style="--d:2.5s" d="M228,70 L226,54 L242,56"/>
+              <path class="draw" pathLength="1" style="--d:1.3s" d="M169,228 H216 L252,196"/>
+              <path class="pop" style="--d:2.6s" d="M240,196 L254,194 L252,208"/>
+              <g class="dimc">
+                <path class="draw" pathLength="1" style="--d:.4s" d="M465,250 L545,170 L465,90 L385,170 Z"/>
+                <path class="draw" pathLength="1" style="--d:.6s" d="M372,160 Q465,62 558,160"/>
+                <circle class="pop" style="--d:.9s" cx="465" cy="172" r="10"/>
+              </g>
+              <path class="pop" style="--d:1s" d="M459,244 h12 v12 h-12 z"/>
+              <path class="pop" style="--d:1.1s" d="M539,164 h12 v12 h-12 z"/>
+              <path class="pop" style="--d:1.2s" d="M459,84 h12 v12 h-12 z"/>
+              <path class="pop" style="--d:1.3s" d="M379,164 h12 v12 h-12 z"/>
+              <path class="draw" pathLength="1" style="--d:1.5s" d="M465,250 L545,170 L465,90 L385,170 L465,250"/>
+            </svg>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ============ 04 diploma ============ -->
+      <section class="ch alt" id="diploma" data-scene="bars">
+        <div class="cmd"><span class="n">04</span><span class="ps">whans@williamhans</span>:<span class="dir">~/about</span><span class="sp">$ </span><span class="typed" data-cmd="./finish --fast"></span></div>
+        <div class="body">
+          <div class="text">
+            <h2>Two years in a classroom. The rest in under one.</h2>
+            <p>Preparatory Charter High in Philly for two years. Then online school, where I finished the remaining coursework in under a year and took the diploma.</p>
+          </div>
+          <figure class="scene">
+            <div class="bars" aria-label="Two progress bars: Preparatory Charter High, two years, half done; online school, under one year, complete">
+              <div class="brow"><span class="lbl">prep charter high</span><span class="num">2 yrs</span><span class="pbar">[<span class="b" data-fill="12" data-ms="70"></span>]</span></div>
+              <div class="brow"><span class="lbl">online school</span><span class="num">&lt; 1 yr</span><span class="pbar">[<span class="b" data-fill="24" data-ms="14"></span>]  <span class="ok">done</span></span></div>
+            </div>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ============ 05 hands ============ -->
+      <section class="ch" id="hands">
+        <div class="cmd"><span class="n">05</span><span class="ps">whans@williamhans</span>:<span class="dir">~/about</span><span class="sp">$ </span><span class="typed" data-cmd="cat first-jobs.log"></span></div>
+        <div class="body">
+          <div class="text">
+            <h2>Hands first.</h2>
+            <p>Diploma in hand: a laborer for a contracting company alongside a family friend, then an A-driver and driver for Samuel and Sons Seafood, a seafood wholesaler.</p>
+          </div>
+          <figure class="scene">
+            <svg viewBox="0 0 600 300" role="img" aria-label="A box truck drives in and stops, then crates load into the back">
+              <path class="draw dimc" pathLength="1" d="M10,236 H590"/>
+              <g class="truck">
+                <path class="solid" d="M120,216 V100 H360 V216 Z"/>
+                <path class="solid" d="M360,216 V128 H394 L430,170 V216 Z"/>
+                <path d="M368,136 H390 L412,166 H368 Z"/>
+                <path d="M120,216 H440 M430,200 h10"/>
+                <g class="wheel" style="transform-origin:172px 222px"><circle class="solid" cx="172" cy="222" r="16"/><circle cx="172" cy="222" r="5"/><path d="M172,206 v32 M156,222 h32"/></g>
+                <g class="wheel" style="transform-origin:398px 222px"><circle class="solid" cx="398" cy="222" r="16"/><circle cx="398" cy="222" r="5"/><path d="M398,206 v32 M382,222 h32"/></g>
+                <path class="dimc" d="M120,100 V216"/>
+              </g>
+              <g>
+                <path class="crate" style="--d:1.75s" d="M134,180 h32 v32 h-32 z M134,196 h32"/>
+                <path class="crate" style="--d:2.05s" d="M174,180 h32 v32 h-32 z M174,196 h32"/>
+                <path class="crate" style="--d:2.35s" d="M214,180 h32 v32 h-32 z M214,196 h32"/>
+              </g>
+            </svg>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ============ 06 corpsman ============ -->
+      <section class="ch alt" id="corpsman">
+        <div class="cmd"><span class="n">06</span><span class="ps">whans@williamhans</span>:<span class="dir">~/about</span><span class="sp">$ </span><span class="typed" data-cmd="cat service-record.txt"></span></div>
+        <div class="body">
+          <div class="text">
+            <h2>US Navy. Hospital Corpsman.</h2>
+            <p>Walter Reed National Military Medical Center. Enlisted lead for pediatrics, dual-hatted as the building's safety leader and the command fitness leader.</p>
+          </div>
+          <figure class="scene">
+            <svg viewBox="0 0 600 120" role="img" aria-label="A heartbeat trace drawing across the screen">
+              <path class="faint" d="M0,20 H600 M0,45 H600 M0,70 H600 M0,95 H600"/>
+              <path class="draw ecg" pathLength="1" style="--d:.3s" d="M0,70 h30 q8,-12 16,0 h22 l6,6 l8,-52 l8,66 l6,-20 h20 q12,-16 24,0 h60 h30 q8,-12 16,0 h22 l6,6 l8,-52 l8,66 l6,-20 h20 q12,-16 24,0 h60 h30 q8,-12 16,0 h22 l6,6 l8,-52 l8,66 l6,-20 h20 q12,-16 24,0 h60"/>
+            </svg>
+            <ul class="status" aria-label="Roles held at Walter Reed">
+              <li><span class="k">pediatrics</span><span class="v">enlisted lead</span><span class="st"><i></i>active</span></li>
+              <li><span class="k">building safety</span><span class="v">leader</span><span class="st"><i></i>active</span></li>
+              <li><span class="k">command fitness</span><span class="v">leader</span><span class="st"><i></i>active</span></li>
+            </ul>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ============ 07 duty ============ -->
+      <section class="ch" id="duty">
+        <div class="cmd"><span class="n">07</span><span class="ps">whans@williamhans</span>:<span class="dir">~/about</span><span class="sp">$ </span><span class="typed" data-cmd="crontab -l"></span></div>
+        <div class="body">
+          <div class="text">
+            <h2>Then, the duty office.</h2>
+            <p>Toward the end of my tenure I ran the command duty office: the duty rotations, and securing the facility through COVID.</p>
+            <p>I was also on an exclusive team that made sure officials from the White House could receive care without it becoming a public show.</p>
+          </div>
+          <figure class="scene">
+            <svg viewBox="0 0 600 300" role="img" aria-label="A weekly duty roster filling in, then a padlock and the words facility secured">
+              <g class="dimc" style="font-size:16px">
+                <text class="fade" style="--d:.2s" x="92" y="48" text-anchor="middle">M</text><text class="fade" style="--d:.25s" x="156" y="48" text-anchor="middle">T</text><text class="fade" style="--d:.3s" x="220" y="48" text-anchor="middle">W</text><text class="fade" style="--d:.35s" x="284" y="48" text-anchor="middle">T</text><text class="fade" style="--d:.4s" x="348" y="48" text-anchor="middle">F</text><text class="fade" style="--d:.45s" x="412" y="48" text-anchor="middle">S</text><text class="fade" style="--d:.5s" x="476" y="48" text-anchor="middle">S</text>
+                <path class="draw" pathLength="1" style="--d:.1s" d="M60,60 H508 V240 H60 Z"/>
+                <path class="draw" pathLength="1" style="--d:.35s" d="M124,60 V240 M188,60 V240 M252,60 V240 M316,60 V240 M380,60 V240 M444,60 V240 M60,96 H508 M60,132 H508 M60,168 H508 M60,204 H508"/>
+              </g>
+              <g id="roster"></g>
+              <path class="draw" pathLength="1" style="--d:2.5s" d="M70,266 v-6 a12,12 0 0 1 24,0 v6 M62,266 h40 v26 h-40 z"/>
+              <circle class="pop" style="--d:3s" cx="82" cy="279" r="3"/>
+              <text class="fade" style="--d:2.9s;color:var(--green);font-size:16px" x="116" y="285">FACILITY SECURED</text>
+            </svg>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ============ 08 solo ============ -->
+      <section class="ch alt" id="solo">
+        <div class="cmd"><span class="n">08</span><span class="ps">whans@williamhans</span>:<span class="dir">~/about</span><span class="sp">$ </span><span class="typed" data-cmd="ls certs/"></span></div>
+        <div class="body">
+          <div class="text">
+            <h2>Out, and on my own.</h2>
+            <p>After the service I worked for myself as a fitness professional, earning certifications across specialized roles for different age groups and goals.</p>
+            <p>In between, a brief stint with a security company as account manager for Whole Foods locations across the Philadelphia area.</p>
+          </div>
+          <figure class="scene">
+            <svg viewBox="0 0 600 300" role="img" aria-label="A barbell being loaded, plates sliding on from both ends">
+              <path class="draw" pathLength="1" style="stroke-width:7" d="M40,150 H560"/>
+              <path class="draw dimc" pathLength="1" style="--d:.3s" d="M266,142 v16 M278,142 v16 M290,142 v16 M302,142 v16 M314,142 v16 M326,142 v16 M338,142 v16"/>
+              <path class="solid fade" style="--d:.4s" d="M146,132 h14 v36 h-14 z M440,132 h14 v36 h-14 z"/>
+              <path class="plate pl solid" style="--d:.6s" d="M126,65 h20 v170 h-20 z"/>
+              <path class="plate pr solid" style="--d:.75s" d="M454,65 h20 v170 h-20 z"/>
+              <path class="plate pl solid" style="--d:1s" d="M104,80 h20 v140 h-20 z"/>
+              <path class="plate pr solid" style="--d:1.15s" d="M476,80 h20 v140 h-20 z"/>
+              <path class="plate pl solid" style="--d:1.4s" d="M82,95 h20 v110 h-20 z"/>
+              <path class="plate pr solid" style="--d:1.55s" d="M498,95 h20 v110 h-20 z"/>
+            </svg>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ============ 09 buildout ============ -->
+      <section class="ch" id="buildout" data-scene="count">
+        <div class="cmd"><span class="n">09</span><span class="ps">whans@williamhans</span>:<span class="dir">~/about</span><span class="sp">$ </span><span class="typed" data-cmd="cat buildout.plan"></span></div>
+        <div class="body">
+          <div class="text">
+            <h2>Then, the buildout.</h2>
+            <p>Project management next: Assistant Project Manager on the construction of a casino just outside the city.</p>
+          </div>
+          <figure class="scene">
+            <svg class="bp" viewBox="0 0 600 300" role="img" aria-label="A blueprint floor plan drawing itself, with a completion counter climbing to one hundred percent">
+              <defs><pattern id="dotgrid" width="20" height="20" patternUnits="userSpaceOnUse"><circle class="dots" cx="10" cy="10" r=".9"/></pattern></defs>
+              <rect x="0" y="0" width="600" height="300" fill="url(#dotgrid)" stroke="none"/>
+              <path class="draw" pathLength="1" d="M330,260 H540 V40 H60 V260 H270"/>
+              <path class="draw" pathLength="1" style="--d:.5s" d="M260,40 V90 M260,130 V180 H340 M300,180 H60"/>
+              <path class="draw" pathLength="1" style="--d:.8s" d="M340,180 H400 V260"/>
+              <path class="draw" pathLength="1" style="--d:1s" d="M400,40 V110 H450 M490,110 H540"/>
+              <path class="draw dimc" pathLength="1" style="--d:1.3s" d="M260,130 A40,40 0 0 1 220,90 M260,90 H220 M300,180 A40,40 0 0 0 340,220 M340,180 V220 M490,110 A40,40 0 0 0 450,70 M450,110 V70 M270,260 A30,30 0 0 1 300,230 M330,260 A30,30 0 0 0 300,230"/>
+              <path class="draw dimc" pathLength="1" style="--d:1.5s" d="M60,24 H540 M60,18 v12 M540,18 v12 M44,40 V260 M38,40 h12 M38,260 h12"/>
+              <g class="fade" style="--d:1.6s">
+                <path d="M408,222 H532 V252 H408 Z M408,237 H532 M470,222 V252"/>
+                <text x="414" y="233">A.P.M.</text>
+                <text x="476" y="233">BUILDOUT</text>
+                <text x="414" y="248">CASINO</text>
+                <text id="pct" x="476" y="248">0%</text>
+              </g>
+            </svg>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ============ 10 region ============ -->
+      <section class="ch alt" id="region">
+        <div class="cmd"><span class="n">10</span><span class="ps">whans@williamhans</span>:<span class="dir">~/about</span><span class="sp">$ </span><span class="typed" data-cmd="top -o region"></span></div>
+        <div class="body">
+          <div class="text">
+            <h2>Regional Operations Manager.</h2>
+            <p>I started at AMERI-CANS as an Assistant Operations Manager and worked my way into Regional Operations Manager for the South Central region: a multi-branch operation expanding across Texas.</p>
+          </div>
+          <figure class="scene">
+            <svg viewBox="0 0 580 500" role="img" aria-label="An outline of Texas drawing itself, then branch locations lighting up and linking">
+              <path class="draw" pathLength="1" style="animation-duration:2.2s" d="M182.8,24.2 L292,24.2 L292,105.8 L320.8,112.4 L360.4,125 L414.4,135.8 L492.4,144.2 L506.8,213.2 L518.8,255.2 L514,310.4 L479.2,326.6 L421.6,364.4 L392.8,398 L395.2,467.6 L356.8,463.4 L324.4,448.4 L310,402.2 L281.2,368.6 L259.6,323.6 L241.6,306.8 L205.6,305.6 L178.6,339.8 L155.2,326.6 L126.4,309.8 L115.6,272 L90.4,251 L58,224 L53.8,213.2 L181.6,213.2 Z"/>
+              <path class="draw dimc" pathLength="1" style="--d:2.4s" d="M342.4,132.8 L257.2,65.6 M342.4,132.8 L301.6,165.2 M342.4,132.8 L388,251.6"/>
+              <circle class="ring" style="--d:3s" cx="342.4" cy="132.8" r="10"/>
+              <circle class="ring" style="--d:3.4s" cx="257.2" cy="65.6" r="10"/>
+              <circle class="ring" style="--d:3.8s" cx="301.6" cy="165.2" r="10"/>
+              <circle class="ring" style="--d:4.2s" cx="388" cy="251.6" r="10"/>
+              <circle class="pin pop" style="--d:1.9s" cx="342.4" cy="132.8" r="11"/>
+              <circle class="pin pop" style="--d:2.05s" cx="257.2" cy="65.6" r="9"/>
+              <circle class="pin pop" style="--d:2.2s" cx="301.6" cy="165.2" r="9"/>
+              <circle class="pin pop" style="--d:2.35s" cx="388" cy="251.6" r="9"/>
+            </svg>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ============ 11 how I run it + whoami ============ -->
+      <section class="ch end" id="whoami" data-scene="close">
+        <div class="cmd"><span class="n">11</span><span class="ps">whans@williamhans</span>:<span class="dir">~/about</span><span class="sp">$ </span><span class="typed" data-cmd="systemctl list-units --type=skill"></span></div>
+        <div class="body">
+          <div class="text">
+            <h2>How I run it.</h2>
+            <p>The technical skill set comes from years of hobby tinkering. The rest is critical thinking, problem solving, and staying calm under pressure. Put together, that's how I manage a multi-branch operation that keeps growing.</p>
+          </div>
+          <figure class="scene">
+            <div class="boot" aria-label="A boot sequence: technology, critical thinking, problem solving, calm under pressure, all OK">
+              <span class="ln"><span class="br">[  <b class="ok">OK</b>  ]</span><span class="rest"><span class="nm">technology</span><span class="t">years of hobby tinkering</span></span></span>
+              <span class="ln"><span class="br">[  <b class="ok">OK</b>  ]</span><span class="rest"><span class="nm">critical thinking</span></span></span>
+              <span class="ln"><span class="br">[  <b class="ok">OK</b>  ]</span><span class="rest"><span class="nm">problem solving</span></span></span>
+              <span class="ln"><span class="br">[  <b class="ok">OK</b>  ]</span><span class="rest"><span class="nm">calm under pressure</span></span></span>
+              <span class="ln"><span class="br">   <b class="arrow">&#x2192;</b>    </span><span class="rest"><span class="nm">running: south central region</span></span></span>
+            </div>
+          </figure>
+        </div>
+        <div class="cmd second" id="who-cmd"><span class="ps">whans@williamhans</span>:<span class="dir">~/about</span><span class="sp">$ </span><span id="who-typed"></span><i class="caret" id="who-caret"></i></div>
+        <div class="who" id="who" aria-label="Summary"></div>
+        <div class="menu" role="menu" aria-label="Destinations">
+          <a href="index.html" role="menuitem" data-key="1"><span class="n">[1]</span><span class="t">cd ~</span><span class="d">Back to the terminal</span></a>
+          <a href="ameri-cans.html" role="menuitem" data-key="2"><span class="n">[2]</span><span class="t">AMERI-CANS Docs &amp; Tools</span><span class="d">Staff dashboard: products, cut sheets, forms, calculators</span></a>
+        </div>
+        <div class="cmd final"><span class="ps">whans@williamhans</span>:<span class="dir">~/about</span><span class="sp">$ </span><i class="caret" id="end-caret"></i></div>
+      </section>
+
+      <footer>
+        <span>williamhans.app&nbsp;&nbsp;|&nbsp;&nbsp;about</span>
+        <span>Press 1 or 2 to jump, Esc for home</span>
+      </footer>
+    </main>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var timers = [];
+  var wait = function (ms) { return new Promise(function (res) { timers.push(setTimeout(res, reduce ? 0 : ms)); }); };
+
+  // Type text into an element, one character at a time (instant when motion is reduced).
+  function type(el, text, ms) {
+    return new Promise(function (res) {
+      if (!el) return res();
+      if (reduce) { el.textContent = text; return res(); }
+      var i = 0;
+      var t = setInterval(function () { i++; el.textContent = text.slice(0, i); if (i >= text.length) { clearInterval(t); res(); } }, ms);
+      timers.push(t);
+    });
+  }
+
+  /* ---------- hero: ANSI Shadow block letters, the same font as the landing ---------- */
+  var FONT = {
+    A: [' █████╗ ', '██╔══██╗', '███████║', '██╔══██║', '██║  ██║', '╚═╝  ╚═╝'],
+    B: ['██████╗ ', '██╔══██╗', '██████╔╝', '██╔══██╗', '██████╔╝', '╚═════╝ '],
+    O: [' ██████╗ ', '██╔═══██╗', '██║   ██║', '██║   ██║', '╚██████╔╝', ' ╚═════╝ '],
+    U: ['██╗   ██╗', '██║   ██║', '██║   ██║', '██║   ██║', '╚██████╔╝', ' ╚═════╝ '],
+    T: ['████████╗', '╚══██╔══╝', '   ██║   ', '   ██║   ', '   ██║   ', '   ╚═╝   ']
+  };
+  function artRows(word) {
+    var g = word.split('').map(function (c) { return FONT[c]; });
+    return g[0].map(function (_, r) { return g.map(function (x) { return x[r]; }).join(' '); });
+  }
+  // Each block cell is its own span (column index for the sweep, its own clock for the flicker); the shadow runs stay grouped.
+  function rowEl(text) {
+    var row = document.createElement('span'); row.className = 'row';
+    var cur = null;
+    for (var i = 0; i < text.length; i++) {
+      var ch = text[i], blk = ch === '█';
+      if (blk) {
+        var k = document.createElement('span'); k.className = 'k'; k.textContent = ch;
+        k.style.setProperty('--c', i); k.style.setProperty('--fl', (3.5 + Math.random() * 4.5).toFixed(2) + 's'); k.style.setProperty('--fd', (Math.random() * 6).toFixed(2) + 's');
+        row.appendChild(k); cur = null; continue;
+      }
+      if (!cur) { cur = document.createElement('span'); cur.className = 's'; row.appendChild(cur); }
+      cur.textContent += ch;
+    }
+    return row;
+  }
+  // A pointer over the letters lights the cells within reach, like running a hand across a panel of LEDs.
+  function artLive(art) {
+    if (reduce) return;
+    var cells = $$('.k', art), pts = [], R = 46 * 46, pending = null;
+    function measure() { pts = cells.map(function (el) { var r = el.getBoundingClientRect(); return { el: el, x: r.left + r.width / 2 + window.scrollX, y: r.top + r.height / 2 + window.scrollY }; }); }
+    function clear() { for (var i = 0; i < pts.length; i++) pts[i].el.classList.remove('hot'); }
+    function paint(px, py) { for (var i = 0; i < pts.length; i++) { var p = pts[i], dx = p.x - px, dy = p.y - py; p.el.classList.toggle('hot', dx * dx + dy * dy < R); } }
+    measure(); window.addEventListener('resize', measure);
+    art.addEventListener('pointermove', function (e) { var px = e.pageX, py = e.pageY; if (pending) return; pending = requestAnimationFrame(function () { pending = null; paint(px, py); }); });
+    art.addEventListener('pointerleave', clear); art.addEventListener('pointercancel', clear);
+  }
+  function hero() {
+    var typed = $('.hero .typed'), out = $('#hero-out'), art = $('#art'), caret = $('#hero-caret');
+    var rows = artRows('ABOUT');
+    var seq = type(typed, typed.getAttribute('data-cmd'), 42).then(function () { return wait(260); });
+    seq = seq.then(function () { art.classList.add('show'); });
+    rows.forEach(function (r) { seq = seq.then(function () { art.appendChild(rowEl(r)); return wait(55); }); });
+    seq = seq.then(function () { art.classList.add('on'); artLive(art); return wait(140); })
+      .then(function () { $('.hero .name').classList.add('show'); return wait(90); })
+      .then(function () { $('.hero .sub').classList.add('show'); return wait(90); })
+      .then(function () { $('.hero .hint').classList.add('show'); caret.classList.remove('on'); });
+    return seq;
+  }
+
+  /* ---------- scene helpers ---------- */
+  // 01: window lights on the skyline, placed by code so each one gets its own moment.
+  function lights() {
+    var g = $('#lights'); if (!g) return;
+    var ns = 'http://www.w3.org/2000/svg', d = 1.3;
+    function add(x, y, w, h) { var r = document.createElementNS(ns, 'rect'); r.setAttribute('x', x); r.setAttribute('y', y); r.setAttribute('width', w); r.setAttribute('height', h); r.setAttribute('class', 'win-lit'); r.style.setProperty('--d', d.toFixed(2) + 's'); d += 0.07; g.appendChild(r); }
+    var houses = [[10, 176], [70, 172], [130, 178], [190, 174], [450, 176], [510, 172]];
+    houses.forEach(function (h) { add(h[0] + 12, h[1] + 20, 10, 14); add(h[0] + 38, h[1] + 20, 10, 14); });
+    for (var r = 0; r < 7; r++) for (var c = 0; c < 3; c++) if ((r * 3 + c) % 4 !== 1) add(338 + c * 16, 52 + r * 26, 6, 10);
+    for (r = 0; r < 5; r++) add(437, 104 + r * 26, 16, 6);
+    for (r = 0; r < 4; r++) add(160 + (r % 2) * 20, 136 + r * 24, 8, 10);
+    for (r = 0; r < 3; r++) add(510 + (r % 2) * 14, 156 + r * 26, 8, 10);
+    for (r = 0; r < 4; r++) add(240 + (r % 2) * 12, 150 + r * 22, 8, 10);
+  }
+  // 07: the duty roster, a week across and five rows down, duty cells on a rotating diagonal.
+  function roster() {
+    var g = $('#roster'); if (!g) return;
+    var ns = 'http://www.w3.org/2000/svg';
+    for (var r = 0; r < 5; r++) for (var c = 0; c < 7; c++) {
+      var on = (r + c) % 3 === 0, el = document.createElementNS(ns, 'rect');
+      el.setAttribute('x', 67 + c * 64); el.setAttribute('y', 67 + r * 36); el.setAttribute('width', 50); el.setAttribute('height', 22);
+      el.setAttribute('class', on ? 'cell pop' : 'cell off fade');
+      el.style.setProperty('--d', (0.7 + (r * 7 + c) * 0.045).toFixed(3) + 's');
+      g.appendChild(el);
+    }
+  }
+  // 04: ASCII progress bars, filled cell by cell.
+  function bars(sec) {
+    var ok = $('.ok', sec), items = $$('.b', sec);
+    var seq = Promise.resolve();
+    items.forEach(function (b) {
+      var fill = +b.getAttribute('data-fill'), ms = +b.getAttribute('data-ms'), n = 24;
+      seq = seq.then(function () {
+        return new Promise(function (res) {
+          var i = 0;
+          var step = function () { i++; b.textContent = '█'.repeat(Math.min(i, fill)) + '░'.repeat(n - Math.min(i, fill)); if (i >= fill) return res(); timers.push(setTimeout(step, ms)); };
+          b.textContent = '░'.repeat(n);
+          if (reduce) { b.textContent = '█'.repeat(fill) + '░'.repeat(n - fill); return res(); }
+          timers.push(setTimeout(step, 420));
+        });
+      });
+    });
+    seq.then(function () { return wait(200); }).then(function () { ok.classList.add('show'); });
+  }
+  // 09: completion counter in the title block.
+  function count(sec) {
+    var el = $('#pct', sec); if (!el) return;
+    if (reduce) { el.textContent = '100%'; return; }
+    var t0 = null, dur = 2200, start = 1700;
+    timers.push(setTimeout(function () {
+      var tick = function (ts) { if (!t0) t0 = ts; var k = Math.min(1, (ts - t0) / dur); var e = 1 - Math.pow(1 - k, 3); el.textContent = Math.round(e * 100) + '%'; if (k < 1) requestAnimationFrame(tick); };
+      requestAnimationFrame(tick);
+    }, start));
+  }
+  // 11: the boot lines, then a second prompt types whoami, then the menu and the resting prompt.
+  function close(sec) {
+    var lines = $$('.ln', sec), seq = wait(500);
+    lines.forEach(function (ln, i) { seq = seq.then(function () { ln.classList.add('show'); return wait(i === lines.length - 1 ? 420 : 260); }); });
+    seq = seq.then(function () { return wait(600); })
+      .then(function () { $('#who-cmd', sec).classList.add('show'); $('#who-caret', sec).classList.add('on'); return wait(500); })
+      .then(function () { return type($('#who-typed', sec), 'whoami --verbose', 30); })
+      .then(function () { $('#who-caret', sec).classList.remove('on'); });
+    var pre = $('#who', sec), rows = [
+      ['name', 'William "Billy" Hans'],
+      ['from', 'Philadelphia, PA'],
+      ['now', 'Texas'],
+      ['role', 'Regional Operations Manager, South Central region, AMERI-CANS'],
+      ['service', 'US Navy, Hospital Corpsman'],
+      ['runs on', 'technology, critical thinking, problem solving, calm under pressure']
+    ];
+    seq = seq.then(function () { return wait(300); });
+    rows.forEach(function (r) {
+      seq = seq.then(function () {
+        var row = document.createElement('div'); row.className = 'row';
+        var k = document.createElement('span'); k.className = 'key'; k.textContent = r[0];
+        var v = document.createElement('span'); v.className = 'val';
+        row.appendChild(k); row.appendChild(v); pre.appendChild(row);
+        return type(v, r[1], 9);
+      });
+    });
+    seq.then(function () { return wait(240); }).then(function () {
+      var links = $$('.menu a', sec), s = Promise.resolve();
+      links.forEach(function (a) { s = s.then(function () { a.classList.add('show'); return wait(110); }); });
+      return s;
+    }).then(function () { $('#end-caret').classList.add('on'); });
+  }
+  var scenes = { bars: bars, count: count, close: close };
+
+  /* ---------- chapters reveal as they scroll in ---------- */
+  function enter(sec) {
+    if (sec.classList.contains('in')) return;
+    sec.classList.add('in');
+    var typed = $('.typed', sec);
+    if (typed) type(typed, typed.getAttribute('data-cmd'), 24);
+    var fn = scenes[sec.getAttribute('data-scene')];
+    if (fn) fn(sec);
+  }
+  var chapters = $$('.ch');
+  if ('IntersectionObserver' in window && !reduce) {
+    var io = new IntersectionObserver(function (entries) { entries.forEach(function (e) { if (e.isIntersecting) { enter(e.target); io.unobserve(e.target); } }); }, { threshold: 0.28, rootMargin: '0px 0px -8% 0px' });
+    chapters.forEach(function (c) { io.observe(c); });
+  } else {
+    chapters.forEach(enter);
+  }
+
+  /* ---------- rail: progress fill and the active chapter ---------- */
+  var railItems = {};
+  $$('.rail li').forEach(function (li) { railItems[li.getAttribute('data-for')] = li; });
+  function setActive(id) { Object.keys(railItems).forEach(function (k) { railItems[k].classList.toggle('on', k === id); }); }
+  if ('IntersectionObserver' in window) {
+    var io2 = new IntersectionObserver(function (entries) { entries.forEach(function (e) { if (e.isIntersecting) setActive(e.target.id); }); }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+    chapters.forEach(function (c) { io2.observe(c); });
+  }
+  var ticking = false;
+  function progress() {
+    ticking = false;
+    var doc = document.documentElement, max = doc.scrollHeight - window.innerHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+    doc.style.setProperty('--p', p.toFixed(4));
+  }
+  window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(progress); } }, { passive: true });
+  window.addEventListener('resize', progress);
+  progress();
+
+  /* ---------- keys: 1 and 2 jump, Esc goes home, like the terminal ---------- */
+  document.addEventListener('keydown', function (e) {
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    var a = e.key === 'Escape' ? $('.menu a[data-key="1"]') : /^[12]$/.test(e.key) ? $('.menu a[data-key="' + e.key + '"]') : null;
+    if (a) { e.preventDefault(); window.location.href = a.getAttribute('href'); }
+  });
+
+  lights();
+  roster();
+  hero();
+})();
+</script>
+</body>
+</html>
