@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>William "Billy" Hans</title>
+<meta name="description" content="William &quot;Billy&quot; Hans. AMERI-CANS docs and tools, projects, notes.">
+<meta name="theme-color" content="#0c0c0c">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="William &quot;Billy&quot; Hans">
+<meta property="og:title" content="William &quot;Billy&quot; Hans">
+<meta property="og:description" content="AMERI-CANS docs and tools, projects, notes.">
+<link rel="canonical" href="https://williamhans.app/">
+<meta property="og:url" content="https://williamhans.app/">
+<meta property="og:image" content="https://williamhans.app/og-image.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="MARK IV 10-stall restroom unit, front elevation, cut out on a transparent background">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="William &quot;Billy&quot; Hans">
+<meta name="twitter:description" content="AMERI-CANS docs and tools, projects, notes.">
+<meta name="twitter:image" content="https://williamhans.app/og-image.png">
+<script src="./support.js?v=1y36ljz"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    html { background: #161616; color-scheme: dark; }
+    body { margin: 0; background: #161616; }
+    a { color: #cccccc; }
+    a:hover { color: #ffffff; }
+    ::selection { background: #cccccc; color: #0c0c0c; }
+    @keyframes term-blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+  </style>
+</helmet>
+<div onClick="{{ focusInput }}" style="min-height: 100vh; box-sizing: border-box; padding: clamp(0px, 4vw, 40px); display: flex; align-items: stretch; justify-content: center; font-family: ui-monospace, 'Cascadia Mono', 'SF Mono', Menlo, Consolas, 'Liberation Mono', 'DejaVu Sans Mono', monospace; font-size: 13px; line-height: 1.45; color: #cccccc;">
+  <div data-screen-label="Terminal" style="flex: 1 1 auto; max-width: 1040px; display: flex; flex-direction: column; background: #0c0c0c; border: 1px solid #2a2a2a; border-radius: 6px; overflow: hidden; height: calc(100vh - 2 * clamp(0px, 4vw, 40px)); box-sizing: border-box;">
+    <div style="flex: none; display: flex; align-items: stretch; justify-content: space-between; background: #1f1f1f; height: 36px; user-select: none;">
+      <div style="display: flex; align-items: stretch;">
+        <div style="display: flex; align-items: center; gap: 8px; padding: 0 10px 0 12px; background: #0c0c0c; color: #cccccc; font-size: 12px; white-space: nowrap;"><span style="font-weight: 700; color: #cccccc;">&gt;_</span><span>whans@williamhans: ~</span><span style="margin-left: 10px; color: #8a8a8a;">&#x2715;</span></div>
+        <div style="display: flex; align-items: center; padding: 0 12px; color: #cccccc; font-size: 14px;">+</div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 26px; padding: 0 16px; color: #cccccc; font-size: 12px;"><span>&#x2014;</span><span>&#x25A1;</span><span>&#x2715;</span></div>
+    </div>
+    <div ref="{{ bodyRef }}" role="log" aria-live="polite" style="flex: 1 1 auto; min-height: 0; overflow-y: auto; padding: 10px 14px 16px; display: flex; flex-direction: column;">
+      <sc-for list="{{ lines }}" as="ln" hint-placeholder-count="0">
+        <div aria-label="{{ ln.aria }}" style="flex: none; display: flex; flex-wrap: {{ ln.wrap }}; align-items: baseline; min-height: {{ ln.minH }}; font-weight: {{ ln.weight }}; font-size: {{ ln.size }}; line-height: {{ ln.lh }}; overflow-wrap: anywhere;"><sc-if value="{{ ln.isCmd }}" hint-placeholder-val="{{ false }}"><span style="color: #16c60c; font-weight: 700;">whans@williamhans</span><span>:</span><span style="color: #3b78ff; font-weight: 700;">~</span><span style="white-space: pre;">$ </span></sc-if><sc-for list="{{ ln.segs }}" as="sg" hint-placeholder-count="1"><span aria-hidden="{{ ln.hide }}" style="color: {{ sg.color }}; white-space: {{ ln.ws }};">{{ sg.text }}</span></sc-for></div>
+      </sc-for>
+      <div role="menu" aria-label="Destinations" style="flex: none; display: flex; flex-direction: column; margin: 2px 0 6px;">
+        <a href="ameri-cans.html" data-ac-item="ameri-cans" role="menuitem" onClick="{{ m0.click }}" onMouseEnter="{{ m0.hover }}" style="display: {{ m0.display }}; flex-wrap: wrap; align-items: baseline; gap: 0 14px; min-height: 32px; padding: 4px 8px; margin: 0 0 0 -8px; color: {{ m0.fg }}; background: {{ m0.bg }}; text-decoration: none; cursor: pointer; border-radius: 2px;">
+          <span style="flex: none; width: 24px; color: {{ m0.numColor }};">[1]</span><span style="flex: none; width: 240px; font-weight: 700;">AMERI-CANS Docs &amp; Tools</span><span style="flex: 1 1 220px; color: {{ m0.descColor }};">Staff dashboard: products, cut sheets, forms, calculators, site plans</span>
+        </a>
+        <a href="projects/index.html" data-ac-item="projects" role="menuitem" onClick="{{ m1.click }}" onMouseEnter="{{ m1.hover }}" style="display: {{ m1.display }}; flex-wrap: wrap; align-items: baseline; gap: 0 14px; min-height: 32px; padding: 4px 8px; margin: 0 0 0 -8px; color: {{ m1.fg }}; background: {{ m1.bg }}; text-decoration: none; cursor: pointer; border-radius: 2px;">
+          <span style="flex: none; width: 24px; color: {{ m1.numColor }};">[2]</span><span style="flex: none; width: 240px; font-weight: 700;">Projects</span><span style="flex: 1 1 220px; color: {{ m1.descColor }};">Things I am building: Drydock, the AMERI-CANS website remake</span>
+        </a>
+        <a href="#notes" data-ac-item="notes" role="menuitem" onClick="{{ m2.click }}" onMouseEnter="{{ m2.hover }}" style="display: {{ m2.display }}; flex-wrap: wrap; align-items: baseline; gap: 0 14px; min-height: 32px; padding: 4px 8px; margin: 0 0 0 -8px; color: {{ m2.fg }}; background: {{ m2.bg }}; text-decoration: none; cursor: pointer; border-radius: 2px;">
+          <span style="flex: none; width: 24px; color: {{ m2.numColor }};">[3]</span><span style="flex: none; width: 240px; font-weight: 700;">Notes</span><span style="flex: 1 1 220px; color: {{ m2.descColor }};">Writing and field notes</span>
+        </a>
+        <a href="about.html" data-ac-item="about" role="menuitem" onClick="{{ m3.click }}" onMouseEnter="{{ m3.hover }}" style="display: {{ m3.display }}; flex-wrap: wrap; align-items: baseline; gap: 0 14px; min-height: 32px; padding: 4px 8px; margin: 0 0 0 -8px; color: {{ m3.fg }}; background: {{ m3.bg }}; text-decoration: none; cursor: pointer; border-radius: 2px;">
+          <span style="flex: none; width: 24px; color: {{ m3.numColor }};">[4]</span><span style="flex: none; width: 240px; font-weight: 700;">About</span><span style="flex: 1 1 220px; color: {{ m3.descColor }};">Who I am</span>
+        </a>
+      </div>
+      <sc-for list="{{ tail }}" as="ln" hint-placeholder-count="0">
+        <div style="flex: none; display: flex; flex-wrap: wrap; align-items: baseline; min-height: 1.45em; overflow-wrap: anywhere; font-weight: {{ ln.weight }};"><sc-if value="{{ ln.isCmd }}" hint-placeholder-val="{{ false }}"><span style="color: #16c60c; font-weight: 700;">whans@williamhans</span><span>:</span><span style="color: #3b78ff; font-weight: 700;">~</span><span style="white-space: pre;">$ </span></sc-if><sc-for list="{{ ln.segs }}" as="sg" hint-placeholder-count="1"><span style="color: {{ sg.color }}; white-space: pre-wrap;">{{ sg.text }}</span></sc-for></div>
+      </sc-for>
+      <form onSubmit="{{ submit }}" style="flex: none; display: {{ promptDisplay }}; flex-wrap: wrap; align-items: center; min-height: 1.45em; margin: 0;">
+        <label for="term-in" style="display: contents;"><span style="color: #16c60c; font-weight: 700;">whans@williamhans</span><span>:</span><span style="color: #3b78ff; font-weight: 700;">~</span><span>$&nbsp;</span></label>
+        <input id="term-in" ref="{{ inputRef }}" type="text" value="{{ typed }}" onChange="{{ onType }}" onKeyDown="{{ onKey }}" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="{{ false }}" aria-label="Command. Type a number or a name and press Enter" style="flex: 1 1 120px; min-width: 120px; min-height: 28px; padding: 0; margin: 0; border: 0; outline: none; background: transparent; color: #cccccc; font: inherit; caret-color: #cccccc;">
+      </form>
+      <sc-if value="{{ booting }}" hint-placeholder-val="{{ true }}"><div aria-hidden="true" style="flex: none; width: 8px; height: 1.1em; background: #cccccc; animation: term-blink 1s steps(1) infinite;"></div></sc-if>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"skipIntro":{"editor":"boolean","default":false,"tsType":"boolean","section":"Intro"}}'>
+class Component extends DCLogic {
+  state = { lines: [], tail: [], typed: '', sel: 0, menu: 0, ready: false };
+  bodyRef = React.createRef(); inputRef = React.createRef();
+  ITEMS = [
+    { id: 'ameri-cans', label: 'AMERI-CANS Docs & Tools', aliases: ['americans', 'ameri', 'docs', 'tools', 'dashboard', 'ac'] },
+    { id: 'projects', label: 'Projects', aliases: ['project'] },
+    { id: 'notes', label: 'Notes', aliases: ['writing', 'blog'] },
+    { id: 'about', label: 'About', aliases: ['whoami', 'me'] },
+  ];
+  // ANSI Shadow block font, 6 rows per glyph; the box-drawing characters are the drop shadow and render in a darker tone.
+  FONT = {
+    W: ['██╗    ██╗', '██║    ██║', '██║ █╗ ██║', '██║███╗██║', '╚███╔███╔╝', ' ╚══╝╚══╝ '],
+    I: ['██╗', '██║', '██║', '██║', '██║', '╚═╝'],
+    L: ['██╗     ', '██║     ', '██║     ', '██║     ', '███████╗', '╚══════╝'],
+    A: [' █████╗ ', '██╔══██╗', '███████║', '██╔══██║', '██║  ██║', '╚═╝  ╚═╝'],
+    M: ['███╗   ███╗', '████╗ ████║', '██╔████╔██║', '██║╚██╔╝██║', '██║ ╚═╝ ██║', '╚═╝     ╚═╝'],
+    H: ['██╗  ██╗', '██║  ██║', '███████║', '██╔══██║', '██║  ██║', '╚═╝  ╚═╝'],
+    N: ['███╗   ██╗', '████╗  ██║', '██╔██╗ ██║', '██║╚██╗██║', '██║ ╚████║', '╚═╝  ╚═══╝'],
+    S: ['███████╗', '██╔════╝', '███████╗', '╚════██║', '███████║', '╚══════╝'],
+  };
+  // United States Navy emblem (eagle, shield, anchor), traced from the logo into quarter-block characters. SIDE sits right of the name on wide screens; STACK goes below it on phones.
+  NAVY_SIDE = ["▐▙▖                                      ▗▟▌"," ▜██▄▖                                ▗▄██▛","█▄▝▀██▘▄                            ▄▝██▀▘▄█","▝▜█▙▄ ▐██▄▖        ▄▄▟▙▄▖        ▗▄██▌ ▄▟█▛▘","▜▄▄▀▀▌▝████▙▖    ▄▀▜█▘ ▝▙      ▗▟████▘▐▀▀▄▄▛"," ▜██▙▄▖▝▜████▖   ▀▜█▀   ▐▌    ▗████▛▘▗▄▟██▛"," ▗▄▄▝▀▀▘▐████▌    ▟▙▄▗▄▗▖█    ▐████▌▝▀▀▘▄▄▖","  ▀████▙ ▜███▘   ▗████████▌   ▝███▛ ▟████▀","   ▗▄▄▄▄▖ ██▌    ▟█████████    ▐██ ▗▄▄▄▄▖","    ▝▀▀▀▀ ▝██▙▄ ████████████ ▄▟██▘ ▀▀▀▀▘","      ▝▀█▀ ▝███ ████████████ ███▘ ▀█▀▘","            ▝▀▀ █▌▐█ ██ █▌▐█ ▀▀▘","                █▌▐█ ██ █▌▐█","        ▄▄▄▄▖   █▌▐█ ██ █▌▐█     ▗▖","       ▄████▀▘  ▀▌▐█ ██ █▌▐▀     ██▌","     ▗▟█▛▀▀        ▀ ██ ▀▘       ██▌","     ▟█▛        ▟▀▀▜▖▝▘▗▛▀▀▙     ██▌","    ▟███████████▙▄▄▄████▄▙▄▟████████████▌","    ▝██▛▀▀▀▀▀▀▀▀█▛▀█▀██▀█▀▜█▀▀▀▀▀██▛▀▀▀▀▘","     ▐██▖▗     ▟█ ▟▛ ██▖▜▙ █▙    ██▌","      ▝████▄▖  ▀ ▐█▘ ██ ▝█▌ ▀    ██▌","        ████▛▘   ▝▘  ▜▛  ▝▘      ▀▛▘"];
+  NAVY_STACK = ["▐▙▄                                                   ▄▟▌"," ███▄▖                                             ▗▄███","▖▝▀████▄                                         ▄████▀▘▗","▜█▄▖▝▀█▛ ▄▖                                   ▗▄ ▜█▀▘▗▄█▛","▝▜███▄▖ ▐███▄▖          ▗▄▄▟█▙▄▖           ▗▄███▌ ▗▄███▛▘","▄▄ ▀▀██ ▐█████▙▖      ▗▄█▙▄▄  ▝█         ▗▟█████▌ ██▀▀ ▄▄","▝███▄▄   ▜██████▄    ▐█▄▄▟█    ▜▌       ▄██████▛   ▄▄███▘","  ▀▜████▄▖▝▜█████▖    ▘ ▟▌      █▖     ▗█████▛▘▗▄████▛▀","  ▄▄▄▖ ▀▀▘ ██████▌     ▗█▗▄ ▄▖▗▄▐▙     ▐██████ ▝▀▀ ▗▄▄▄","  ▝▜█████▄ ▐█████▘     ▟██████████▖    ▝█████▌ ▄█████▛▘","     ▝▀▀▀▀▘ ▝███▌     ▐███████████▙     ▐███▘ ▝▀▀▀▀▘","    ▝▜███▙▄▖ ███▙     ▀▀▀▀▀▀▀▀▀▀▀▀▀     ▟███ ▗▄▟███▛▘","       ▝▀▀▀▘ ▝▜████▖▝███████████████▘▗████▛▘ ▝▀▀▀▘","        ▝▜███  ████▌ ███████████████ ▐████  ███▛▘","                ▀██▌ ██▀▜█▀▜█▛▀██▀▜█▖▐██▀","                     ██ ██ ▐█▌ ██ ▐█▌","                     ██ ██ ▐█▌ ██ ▐█▌","          ▗▄▄▄▄▄     ██ ██ ▐█▌ ██ ▐█▌","          ▄██████▘   ▜█ ██ ▐█▌ ██ ▐▛      ▐██▌","        ▄█████▀▘        ▜█ ▐█▌ █▛          ██▌","       ▟██▛ ▝            ▝ ▐█▌ ▘           ██▌","      ▗███          ▗▛▀▀▀▜▖ ▀ ▗▛▀▀▀▜▖      ██▌","     ▗███████████████▌▐ ▖▐█████▘▗ ▖▐████████████████▖","     ▝██████████████████████████████████████████████▘","      ▝███          ▄█▛ ▟▛ ▟█▙ ▜▙ ▜█▙      ██▌","       ▜██▙ ▄      ▗█▛ ▟█▌ ███ ▐█▙ ▜█▖     ██▌","        ▀█████▄▖   ▛▘  ██▘ ███ ▝██  ▝▜    ▗██▌","          ▀██████▖     ▛▘  ▐█▌  ▝▜        ▐██▌","          ▝▀▀▀▀▀            ▀"];
+  NAME_W = 57; GAP = 3;
+  sideBySide = true; ART_COLS = 104;
+  layout() { const b = this.bodyRef.current; const w = b ? b.clientWidth : document.documentElement.clientWidth; this.sideBySide = w >= 720; this.ART_COLS = this.sideBySide ? this.NAME_W + this.GAP + 44 : 57; }
+  nameSegs(text) { const segs = []; let cur = null; for (const ch of text) { const blk = ch === '█'; if (!cur || cur.blk !== blk) { cur = { blk, text: '' }; segs.push(cur); } cur.text += ch; } return segs.map((s) => ({ text: s.text, color: s.blk ? '#c19c00' : '#6b5600' })); }
+  art(word) { const g = word.split('').map((c) => this.FONT[c]); return g[0].map((_, r) => g.map((x) => x[r]).join(' ')); }
+  line(text, kind) {
+    const k = kind || 'out', big = k === 'art' || k === 'emblem' || k === 'combo';
+    const base = k === 'art' || k === 'combo' ? '#c19c00' : k === 'emblem' ? '#f2f2f2' : k === 'dim' ? '#8a8a8a' : k === 'err' ? '#f14c4c' : k === 'bold' ? '#ffffff' : '#cccccc';
+    let segs = [{ text, color: base }];
+    if (k === 'art') segs = this.nameSegs(text);
+    if (k === 'combo') segs = this.nameSegs(text.name.padEnd(this.NAME_W)).concat([{ text: ' '.repeat(this.GAP) + text.emblem, color: '#f2f2f2' }]);
+    return { segs, isCmd: k === 'cmd', weight: k === 'bold' ? '700' : '400', size: big ? 'min(13px, calc((100vw - 60px) / ' + (this.ART_COLS * 0.66).toFixed(1) + '))' : 'inherit', lh: big ? '1.15' : 'inherit', ws: big ? 'pre' : 'pre-wrap', wrap: big ? 'nowrap' : 'wrap', minH: big ? '1.15em' : '1.45em', hide: big, aria: k === 'emblem' ? 'United States Navy emblem' : k === 'art' ? 'Block letters' : k === 'combo' ? 'Block letters and the United States Navy emblem' : undefined };
+  }
+  componentDidMount() {
+    this._timers = [];
+    const reduce = (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) || !!(this.props && this.props.skipIntro);
+    const cmd = './welcome', steps = [];
+    this.setState({ lines: [this.line('', 'cmd')] });
+    for (let i = 1; i <= cmd.length; i++) steps.push([42, () => this.setState((s) => ({ lines: [Object.assign({}, s.lines[0], { segs: [{ text: cmd.slice(0, i), color: '#cccccc' }] })].concat(s.lines.slice(1)) }))]);
+    steps.push([260, () => this.push('')]);
+    // the art rows are built when this step runs, so the layout is read from the settled terminal width
+    steps.push([0, () => {
+      this.layout();
+      const name = this.art('WILLIAM').concat([''], this.art('HANS')), art = [];
+      if (this.sideBySide) {
+        const em = this.NAVY_SIDE, rows = Math.max(name.length, em.length), top = Math.floor((rows - name.length) / 2);
+        for (let r = 0; r < rows; r++) { const pair = { name: name[r - top] || '', emblem: em[r] || '' }; art.push([55, () => this.push(pair, 'combo')]); }
+      } else {
+        for (const row of name) art.push([60, () => this.push(row, 'art')]);
+        art.push([140, () => this.push('')]);
+        for (const row of this.NAVY_STACK) art.push([30, () => this.push(row, 'emblem')]);
+      }
+      this._steps.unshift(...art);
+    }]);
+    steps.push([140, () => this.push('')]);
+    steps.push([90, () => this.push('William "Billy" Hans', 'bold')]);
+    steps.push([70, () => this.push('Regional Operations Manager, AMERI-CANS.', 'dim')]);
+    steps.push([90, () => this.push('')]);
+    steps.push([90, () => this.push('Select a destination: Up and Down then Enter, press a number, or click.', 'dim')]);
+    for (let n = 1; n <= this.ITEMS.length; n++) steps.push([85, () => this.setState({ menu: n })]);
+    steps.push([120, () => { this.setState({ ready: true }, () => this.focus()); }]);
+    this._steps = steps;
+    if (reduce) { this.skip(); return; }
+    const run = () => { const st = this._steps.shift(); if (!st) return; this._timers.push(setTimeout(() => { st[1](); run(); }, st[0])); };
+    run();
+    this._onDocKey = (e) => { if (!this.state.ready && e.key !== 'Tab') { e.preventDefault(); this.skip(); } };
+    document.addEventListener('keydown', this._onDocKey);
+  }
+  componentDidUpdate() { this.scrollEnd(); }
+  componentWillUnmount() { (this._timers || []).forEach(clearTimeout); document.removeEventListener('keydown', this._onDocKey); }
+  skip() { (this._timers || []).forEach(clearTimeout); this._timers = []; while (this._steps && this._steps.length) { const st = this._steps.shift(); st[1](); } this.setState((s) => ({ lines: s.lines.length ? [Object.assign({}, s.lines[0], { segs: [{ text: './welcome', color: '#cccccc' }] })].concat(s.lines.slice(1)) : s.lines, ready: true }), () => this.focus()); }
+  push(text, kind) { this.setState((s) => ({ lines: s.lines.concat([this.line(text, kind)]) })); }
+  out(text, kind) { this.setState((s) => ({ tail: s.tail.concat([this.line(text, kind)]) })); }
+  scrollEnd() { const b = this.bodyRef.current; if (!b) return; b.scrollTop = b.scrollHeight; requestAnimationFrame(() => { b.scrollTop = b.scrollHeight; }); }
+  focus() { const i = this.inputRef.current; if (i && window.matchMedia && window.matchMedia('(pointer: fine)').matches) i.focus({ preventScroll: true }); }
+  hrefOf(id) { const a = document.querySelector('[data-ac-item="' + id + '"]'); const h = a && a.getAttribute('href'); return h && h.charAt(0) !== '#' ? h : null; }
+  open(i) {
+    const it = this.ITEMS[i]; if (!it) return;
+    this.setState({ sel: i });
+    const href = this.hrefOf(it.id);
+    if (href) { this.out('Opening ' + it.label + '...', 'dim'); this._timers.push(setTimeout(() => { location.href = href; }, 280)); }
+    else this.out(it.id + ': nothing here yet. Check back soon.', 'dim');
+  }
+  run(raw) {
+    const cmd = raw.trim(), lower = cmd.toLowerCase();
+    this.out(cmd, 'cmd');
+    if (!cmd) return;
+    if (/^\d+$/.test(lower)) { const i = Number(lower) - 1; if (this.ITEMS[i]) this.open(i); else this.out('bash: ' + cmd + ': no such entry. Type help.', 'err'); return; }
+    const byName = this.ITEMS.findIndex((it) => it.id === lower || it.label.toLowerCase() === lower || it.aliases.indexOf(lower) >= 0);
+    if (byName >= 0) { this.open(byName); return; }
+    if (lower === 'help' || lower === '?' || lower === 'ls' || lower === 'menu') { this.ITEMS.forEach((it, i) => this.out('  ' + (i + 1) + '  ' + it.id.padEnd(12) + it.label)); this.out('Type a number or a name and press Enter. clear, whoami, pwd.', 'dim'); return; }
+    if (lower === 'clear' || lower === 'cls') { this.setState({ lines: [], tail: [] }); return; }
+    if (lower === 'pwd') { this.out('/home/whans'); return; }
+    if (lower === 'date') { this.out(new Date().toString()); return; }
+    if (lower === 'exit' || lower === 'logout') { this.out('logout', 'dim'); return; }
+    this.out('bash: ' + cmd + ': command not found. Type help.', 'err');
+  }
+  renderVals() {
+    const s = this.state;
+    const row = (i) => {
+      const on = s.sel === i, shown = s.menu > i;
+      return { display: shown ? 'flex' : 'none', bg: on ? '#cccccc' : 'transparent', fg: on ? '#0c0c0c' : '#cccccc', numColor: on ? '#0c0c0c' : '#8a8a8a', descColor: on ? '#2a2a2a' : '#8a8a8a',
+        click: (e) => { e.preventDefault(); if (!this.state.ready) this.skip(); this.open(i); }, hover: () => { if (this.state.sel !== i) this.setState({ sel: i }); } };
+    };
+    return {
+      lines: s.lines, tail: s.tail, typed: s.typed, bodyRef: this.bodyRef, inputRef: this.inputRef,
+      m0: row(0), m1: row(1), m2: row(2), m3: row(3),
+      promptDisplay: s.ready ? 'flex' : 'none', booting: !s.ready,
+      focusInput: (e) => { if (e.target.closest && e.target.closest('a, button, input')) return; if (!this.state.ready) { this.skip(); return; } const i = this.inputRef.current; if (i) i.focus({ preventScroll: true }); },
+      onType: (e) => this.setState({ typed: e.target.value }),
+      onKey: (e) => {
+        const n = this.ITEMS.length;
+        if (e.key === 'ArrowDown') { e.preventDefault(); this.setState((st) => ({ sel: (st.sel + 1) % n })); }
+        else if (e.key === 'ArrowUp') { e.preventDefault(); this.setState((st) => ({ sel: (st.sel + n - 1) % n })); }
+        else if (e.key === 'Escape') { this.setState({ typed: '' }); }
+        else if (/^[1-9]$/.test(e.key) && !this.state.typed) { e.preventDefault(); const i = Number(e.key) - 1; if (this.ITEMS[i]) { this.out(e.key, 'cmd'); this.open(i); } }
+      },
+      submit: (e) => { e.preventDefault(); const t = this.state.typed; this.setState({ typed: '' }); if (t.trim()) this.run(t); else { this.out('', 'cmd'); this.open(this.state.sel); } },
+    };
+  }
+}
+</script>
+</body>
+</html>
