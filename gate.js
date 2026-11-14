@@ -1,9 +1,9 @@
 (function () {
   'use strict';
   // Shared password gate for the private side of williamhans.app: the dashboard, the staff tools, the plastics sheets, and (for staff)
-  // the two site plans. One team password (gate/password.txt) or an alternate (gate/alt-passwords.txt). No password is stored here:
+  // the site plans. One team password (gate/password.txt) or an alternate (gate/alt-passwords.txt). No password is stored here:
   // CFG.check is a known tag encrypted with the key derived from the password (PBKDF2-SHA256 -> AES-256-GCM).
-  var CFG = { salt: 'lrQcIxM1NjNcM+9jhZ0Vsw==', iterations: 250000, check: { iv: 'iZYTfmpN+t4kfVre', ct: 'v2D32c/2RfAG99OaC8nT92C0SBUtsj9eJtM=' }, alts: [{ salt: '+RM3at7yA+8uzO8vWjXuqg==', iv: 'v6nRBNlP4E4QSePs', ct: 'i2LNlhX2jcHomE0UKMKPPp5tQ/VC/UannB5wiwp77z24bx8FPtnYCZ6U2GpAQ0djpL0peUVdhvujVWhl' }], store: 'ac-gate-key', tag: 'AMERI-CANS' };
+  var CFG = { salt: 'Mv+MY+pg9/r7qaGjwoKCOA==', iterations: 250000, check: { iv: 'F69C474FVR118waS', ct: '7ghwsu06PloESITk4jgxcZMKoDXO5gQsza8=' }, alts: [{ salt: 'C2eegPMN1oi/yUCA1fNH2A==', iv: 'HEgKyno1uWELzY1t', ct: '0/9mkjsjzv1xlahw27+D4OafFw2vo/DQFrLy9xN8HQ4zqZ4YtGztx1BSxfN4EVqcbOGgdrXOnGHTh06V' }], store: 'ac-gate-key', tag: 'AMERI-CANS' };
   var subtle = (typeof crypto !== 'undefined' && crypto.subtle) ? crypto.subtle : null;
   function toBytes(b64) { var bin = atob(b64), u = new Uint8Array(bin.length); for (var i = 0; i < bin.length; i++) u[i] = bin.charCodeAt(i); return u; }
   function toB64(u8) { var s = ''; for (var i = 0; i < u8.length; i += 0x8000) s += String.fromCharCode.apply(null, u8.subarray(i, i + 0x8000)); return btoa(s); }
