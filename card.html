@@ -31,16 +31,16 @@
 <script src="wash.js?v=1kqd43g" defer></script>
 <style>
 /* Billy's business card. Everything needed to read it and use it is in this one file: the photo, the logo, the buttons, the QR.
-   The card is a pane of glass: see-through, with what is behind it blurred, a bright top edge and a soft shadow. Corners stay square, as everywhere on the site.
+   The card is a pane of glass: see-through, with what is behind it softened, not hidden, a bright top edge and a soft shadow. Corners stay square, as everywhere on the site.
    It opens in Night. That is the card's own default (data-theme on <html>, and its own saved choice, ac-card-theme), not the site's.
    wash.js follows on its own and adds the site's look: the faded service flags drifting behind the page (stars and stripes at night),
    Archivo, the hover lift and the Night and Daylight crossfade. The card works before it arrives and without it. */
-:root{--page:#E3ECF3;--ink:#012B4E;--muted:#3E6883;--inverse:#FFFFFF;--solid:#012B4E;
-  --glass:rgba(255,255,255,.5);--glass-flat:rgba(255,255,255,.9);--edge:rgba(255,255,255,.95);--hair:rgba(1,43,78,.13);--line:rgba(1,43,78,.3);--tile:rgba(255,255,255,.42);
-  --lift:0 34px 60px -34px rgba(1,43,78,.5),0 2px 10px -4px rgba(1,43,78,.18);--shine:rgba(255,255,255,.75);--chip:rgba(255,255,255,.6);--chip-ink:#012B4E;--tab:transparent;--tab-pad:0;--veil:rgba(227,236,243,.46);--veil-dim:brightness(1.06)}
-html[data-theme=night]{color-scheme:dark;--page:#0F1829;--ink:#FFFFFF;--muted:#B4CBDB;--inverse:#0F1829;--solid:rgba(255,255,255,.94);
+:root{--page:#E3ECF3;--ink:#012B4E;--muted:#2F546D;--inverse:#FFFFFF;--solid:#012B4E;
+  --glass:rgba(255,255,255,.34);--glass-flat:rgba(255,255,255,.9);--edge:rgba(255,255,255,.95);--hair:rgba(1,43,78,.13);--line:rgba(1,43,78,.3);--tile:rgba(255,255,255,.42);
+  --lift:0 34px 60px -34px rgba(1,43,78,.5),0 2px 10px -4px rgba(1,43,78,.18);--shine:rgba(255,255,255,.75);--chip:rgba(255,255,255,.6);--chip-ink:#012B4E;--tab:transparent;--tab-pad:0;--veil:rgba(227,236,243,.3);--pane:rgba(227,236,243,.45);--pane-dim:brightness(1.12);--pane-tile:rgba(255,255,255,.42)}
+html[data-theme=night]{color-scheme:dark;--page:#0F1829;--ink:#FFFFFF;--muted:#E3EBF2;--inverse:#0F1829;--solid:rgba(255,255,255,.94);
   --glass:rgba(255,255,255,.085);--glass-flat:rgba(21,32,54,.96);--edge:rgba(255,255,255,.34);--hair:rgba(255,255,255,.14);--line:rgba(255,255,255,.32);--tile:rgba(255,255,255,.07);
-  --lift:0 40px 70px -36px rgba(0,0,0,.85),0 2px 12px -4px rgba(0,0,0,.5);--shine:rgba(255,255,255,.4);--chip:rgba(15,24,41,.45);--chip-ink:#FFFFFF;--tab:#FFFFFF;--tab-pad:5px 9px;--veil:rgba(15,24,41,.55);--veil-dim:brightness(.55)}
+  --lift:0 40px 70px -36px rgba(0,0,0,.85),0 2px 12px -4px rgba(0,0,0,.5);--shine:rgba(255,255,255,.4);--chip:rgba(15,24,41,.45);--chip-ink:#FFFFFF;--tab:#FFFFFF;--tab-pad:5px 9px;--veil:rgba(15,24,41,.3);--pane:rgba(15,24,41,.5);--pane-dim:brightness(.8);--pane-tile:transparent}
 *,*::before,*::after{box-sizing:border-box;border-radius:0}
 html{-webkit-text-size-adjust:100%;background:var(--page)}
 body{margin:0;background:var(--page);color:var(--ink);font-family:var(--font-body,Arial,"Liberation Sans",Helvetica,sans-serif);font-size:16px;line-height:1.4;-webkit-tap-highlight-color:transparent}
@@ -53,9 +53,24 @@ body::after{background:radial-gradient(75vmax 55vmax at 8% 0%,rgba(93,143,175,.4
 html[data-theme=night] body::before{opacity:1}
 html[data-theme=night] body::after{opacity:0}
 .wrap{max-width:452px;margin:0 auto;padding:16px calc(16px + env(safe-area-inset-right)) calc(28px + env(safe-area-inset-bottom)) calc(16px + env(safe-area-inset-left))}
-/* The pane. What is behind it shows through, blurred. A bright line along the top and left edge and a darker one along the bottom give it thickness. */
-.card{position:relative;padding:10px;background-color:var(--glass);border:1px solid var(--edge);box-shadow:var(--lift),inset 0 1px 0 var(--shine),inset 1px 0 0 rgba(255,255,255,.12),inset 0 -1px 0 rgba(0,0,0,.14);-webkit-backdrop-filter:blur(18px) saturate(165%);backdrop-filter:blur(18px) saturate(165%)}
+/* The pane. What is behind it shows through, softened: a light blur, so the marks drifting behind the page can still be made out through the glass.
+   A bright line along the top and left edge and a darker one along the bottom give it thickness. */
+.card{position:relative;padding:10px;background-color:var(--glass);border:1px solid var(--edge);box-shadow:var(--lift),inset 0 1px 0 var(--shine),inset 1px 0 0 rgba(255,255,255,.12),inset 0 -1px 0 rgba(0,0,0,.14);-webkit-backdrop-filter:blur(4px) saturate(160%);backdrop-filter:blur(4px) saturate(160%)}
 @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.card{background-color:var(--glass-flat)}}
+/* Something to see through it. On this page the wash from wash.js is stronger than on the rest of the site, and its night stars and stripes are drawn larger:
+   at the site's own size and strength they are a few faint pixels each and no blur leaves anything of them. This page sets it for itself, whatever level the site has saved.
+   The night marks also change color here, to a deeper red and the house sky blue: colors that stand out against the page by their hue more than their brightness,
+   so a star passing behind a line of text shows through the glass and the words stay readable. The secondary text color (--muted) is set strong enough for the same reason.
+   The strongest stars are held to .46, so the brightest thing that can pass behind a word is known.
+   Measured with the strongest star and the widest stripes parked behind every piece of text, alone and together. */
+.ac-wash{--ac-wash-o:.16}
+html[data-theme=night] .ac-wash{--ac-wash-o:.2}
+html[data-theme=night] .ac-wash .ac-m-star{color:#E0372B}
+html[data-theme=night] .ac-wash .ac-m-stripes{color:#5D8FAF}
+html[data-theme=night] .ac-wash .ac-m-night.ac-m-star{opacity:min(.46,calc(var(--ac-wash-o) * var(--k,1)))}
+.ac-wash .ac-m-night.ac-m-star{zoom:3.2}
+.ac-wash .ac-m-night.ac-m-stripes{zoom:2.2;--k:1.6!important}
+@media (min-width:720px){.ac-wash .ac-m-night.ac-m-star{zoom:1.8}.ac-wash .ac-m-night.ac-m-stripes{zoom:1.6}}
 /* Light lying across the pane: brighter toward the top left corner, a faint return at the bottom right. It lies over the photo too. The QR page's pane (.sheet .in) is the same glass. */
 .card::before,.sheet .in::before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(118deg,rgba(255,255,255,0) 9%,rgba(255,255,255,.09) 15%,rgba(255,255,255,.035) 24%,rgba(255,255,255,0) 31%),linear-gradient(128deg,rgba(255,255,255,.22) 0%,rgba(255,255,255,.05) 22%,rgba(255,255,255,0) 44%,rgba(255,255,255,0) 70%,rgba(255,255,255,.09) 100%)}
 /* One glint across the pane as the card arrives. */
@@ -106,24 +121,28 @@ h1{margin:0;font-size:clamp(24px,7.1vw,30px);line-height:1.1;font-weight:700;let
 @media (prefers-reduced-motion:no-preference){.top,.who,.actions{animation:rise .5s cubic-bezier(.2,.7,.2,1) both}.who{animation-delay:.07s}.actions{animation-delay:.14s}.card::after{animation:glint 1.15s cubic-bezier(.3,.6,.3,1) .55s 1 both}}
 @media (prefers-reduced-motion:reduce){.mode svg,body::before,body::after{transition:none}}
 /* The QR page opens with the address card.html#qr, so it needs no script, the back button closes it, and that address can be saved to a home screen to open straight on the code.
-   It is a second pane of the same glass. The whole screen frosts over: the card stays in view behind, blurred and toned toward the page color (--veil, --veil-dim) so the words on the pane stay readable.
-   The pane itself has the card's lit edge, the same light across it and one glint as it opens. It does not blur for itself: the frost behind it already has.
+   The card stays in view behind it. Over the whole screen lies a light veil of the page color with a little blur (.away, which is also the tap-anywhere-to-close area):
+   enough to push the card back, not enough to hide it. In front of that stands the pane, and the pane is the frosted glass: it blurs what is behind it more,
+   and tones it toward the page color (--pane, --pane-dim) so the words on it stay readable whatever is behind. The tint alone keeps them readable if a browser draws no blur,
+   which is also why the Close button has no fill of its own at night (--pane-tile).
+   The veil and the pane are two layers side by side, not one inside the other, so each blurs what is really behind it.
+   The pane has the card's lit edge, the same light across it and one glint as it opens. The pane itself stays still as it opens and what is on it rises, as on the card.
    The code sits on a plain white plate set into the pane, above the light, because a reader needs clean dark on white. */
-.sheet{display:none;position:fixed;inset:0;z-index:10;overflow:auto;padding:24px calc(24px + env(safe-area-inset-right)) calc(24px + env(safe-area-inset-bottom)) calc(24px + env(safe-area-inset-left));background:var(--veil);color:var(--ink);text-align:center;-webkit-backdrop-filter:blur(24px) saturate(160%) var(--veil-dim);backdrop-filter:blur(24px) saturate(160%) var(--veil-dim)}
+.sheet{display:none;position:fixed;inset:0;z-index:10;overflow:auto;padding:24px calc(24px + env(safe-area-inset-right)) calc(24px + env(safe-area-inset-bottom)) calc(24px + env(safe-area-inset-left));color:var(--ink);text-align:center}
 .sheet:target{display:flex}
-.sheet .away{position:fixed;inset:0;cursor:default}
-.sheet .in{position:relative;margin:auto;width:100%;max-width:380px;padding:14px 14px 18px;background-color:var(--glass);border:1px solid var(--edge);box-shadow:var(--lift),inset 0 1px 0 var(--shine),inset 1px 0 0 rgba(255,255,255,.12),inset 0 -1px 0 rgba(0,0,0,.14)}
-@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.sheet{background:var(--page)}.sheet .in{background-color:var(--glass-flat)}}
+.sheet .away{position:fixed;inset:0;cursor:default;background:var(--veil);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+.sheet .in{position:relative;margin:auto;width:100%;max-width:380px;padding:14px 14px 18px;background-color:var(--pane);border:1px solid var(--edge);box-shadow:var(--lift),inset 0 1px 0 var(--shine),inset 1px 0 0 rgba(255,255,255,.12),inset 0 -1px 0 rgba(0,0,0,.14);-webkit-backdrop-filter:blur(14px) saturate(160%) var(--pane-dim);backdrop-filter:blur(14px) saturate(160%) var(--pane-dim)}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.sheet .away{background:var(--page)}.sheet .in{background-color:var(--glass-flat)}}
 .sheet .in::before,.sheet .in::after{z-index:0}
 .sheet .in>*{position:relative;z-index:1}
 .sheet svg{display:block;width:min(100%,56vh);width:min(100%,56svh);height:auto;margin:0 auto;background:#FFFFFF;box-shadow:0 0 0 1px rgba(255,255,255,.35),0 18px 34px -20px rgba(0,0,0,.6)}
 .sheet h2{margin:18px 0 0;font-size:22px;line-height:1.2;font-weight:700}
 .sheet p{margin:6px 0 0;font-size:15px}
-.sheet .btn{margin:18px auto 0;max-width:220px;background:var(--tile);box-shadow:inset 0 1px 0 var(--shine)}
+.sheet .btn{margin:18px auto 0;max-width:220px;background:var(--pane-tile);box-shadow:inset 0 1px 0 var(--shine)}
 @media (hover:hover){.sheet .btn:hover{border-color:var(--ink);background:var(--glass)}}
 /* A phone on its side: a smaller code and tighter spacing so the whole pane still fits. */
 @media (max-height:520px){.sheet{padding-top:12px;padding-bottom:calc(12px + env(safe-area-inset-bottom))}.sheet .in{max-width:calc(56vh + 22px);max-width:calc(56svh + 22px);padding:10px 10px 12px}.sheet h2{margin-top:10px;font-size:18px}.sheet p{margin-top:4px;font-size:14px}.sheet .btn{margin-top:10px;min-height:44px}}
-@media (prefers-reduced-motion:no-preference){.sheet:target .in{animation:rise .35s cubic-bezier(.2,.7,.2,1) both}.sheet:target .in::after{animation:glint 1.15s cubic-bezier(.3,.6,.3,1) .3s 1 both}}
+@media (prefers-reduced-motion:no-preference){.sheet:target .in>*{animation:rise .35s cubic-bezier(.2,.7,.2,1) both}.sheet:target .in>h2,.sheet:target .in>p{animation-delay:.06s}.sheet:target .in>.btn{animation-delay:.12s}.sheet:target .in::after{animation:glint 1.15s cubic-bezier(.3,.6,.3,1) .3s 1 both}}
 </style>
 </head>
 <body>
